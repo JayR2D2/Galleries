@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images tournantes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h3>Diaporama d'images</h3>
+    <div class="container">
+        <div class="box">
+            <span style="--i:1;"><img src="img1.jpg" alt="Image 1"></span>
+            <span style="--i:2;"><img src="img2.gif" alt="Image 2"></span>
+            <span style="--i:3;"><img src="img3.jpg" alt="Image 3"></span>
+            <span style="--i:4;"><img src="img4.gif" alt="Image 4"></span>
+            <span style="--i:5;"><img src="img5.jpg" alt="Image 5"></span>
+        </div>
+        <div class="btns">
+            <div class="btn prev">Précédent</div>
+            <div class="btn next">Suivant</div>
+        </div>
+    </div>
+    <script>
+        let prev = document.querySelector('.prev');
+        let next = document.querySelector('.next');
+        let box = document.querySelector('.box');
+        
+        let degrees = 0; 
+        
+        prev.addEventListener('click', function() {
+            degrees -= 45; // Changer de direction pour la navigation précédente
+            box.style.transform = `perspective(1000px) rotateY(${degrees}deg)`;
+        });
+        
+        next.addEventListener('click', function() {
+            degrees += 45;
+            box.style.transform = `perspective(1000px) rotateY(${degrees}deg)`;
+        });
+    </script>
+</body>
+</html>
